@@ -20,17 +20,14 @@ public class CSVClass {
             String cvsSplitBy = ",";
 
             try {
-
                 DadosPessoais DP = new DadosPessoais();
                 String[] dados;
 
                 br = new BufferedReader(new FileReader(csvFile));
                 while ((line = br.readLine()) != null) {
 
-
                     // use comma as separator
                     dados = line.split(cvsSplitBy);
-
 
                     System.out.println("Dados Pessoais [Nome= " + dados[0] + " , Idade=" + dados[1] +
                             " , Altura=" + dados[2] + " , Profissão=" + dados[3] + " , Motivo da Consulta=" + dados[4] +
@@ -113,8 +110,8 @@ public class CSVClass {
 
     }
 
-    public void readCSValimentos() throws FileNotFoundException{
-        String csvFile = "C:/Users/cfili/Desktop/ES2Work/csvAlimentos.csv";
+    public void readCSValimentos_frango() throws FileNotFoundException{
+        String csvFile = "C:/Users/cfili/Desktop/ES2Work/csvAlimentos_frango.csv";
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
@@ -132,6 +129,7 @@ public class CSVClass {
                 dados = line.split(cvsSplitBy);
 
 
+/*
                 System.out.println("Alimentos [Código= " + dados[0] + " , Produto=" + dados[1] +
                         " , Energia Kcal=" + dados[2] + " , Energia KJ=" + dados[3] + " , Água=" + dados[4] +
                         " , Proteína=" + dados[5] + " , Gordura Total=" + dados[6] +
@@ -145,6 +143,7 @@ public class CSVClass {
                         " , Niacina=" + dados[28] + " , Triptofano/60=" + dados[29] + " , Vit. B12=" + dados[30] + " , vit. C=" + dados[31] +
                         " , vit B6=" + dados[32] + " , Folatos=" + dados[33] + " , Cinza=" + dados[34] + " , Na=" + dados[35] +
                         " , K=" + dados[36] + " , Ca=" + dados[37] + " , P=" + dados[38] + " , Mg=" + dados[39] + " , Fe=" + dados[40] + " , Zn=" + dados[41] +"]");
+*/
 
                 al.setCodigo(dados[0]);
                 al.setNome(dados[1]);
@@ -188,6 +187,11 @@ public class CSVClass {
                 al.setMg(Float.parseFloat(dados[39]));
                 al.setFe(Float.parseFloat(dados[40]));
                 al.setZn(Float.parseFloat(dados[41]));
+
+
+                System.out.println(dados[0] + " " + dados[1]);
+                //System.out.println(line);
+
             }
 
 
@@ -207,5 +211,342 @@ public class CSVClass {
         }
     }
 
+
+    public void readCSValimentos_massa() throws FileNotFoundException{
+        String csvFile = "C:/Users/cfili/Desktop/ES2Work/csvAlimentos_massa.csv";
+        BufferedReader br = null;
+        String line = "";
+        String cvsSplitBy = ",";
+
+        try {
+
+            Alimentos al = new Alimentos();
+            String[] dados;
+
+            br = new BufferedReader(new FileReader(csvFile));
+            while ((line = br.readLine()) != null) {
+
+
+                // use comma as separator
+                dados = line.split(cvsSplitBy);
+
+                al.setCodigo(dados[0]);
+                al.setNome(dados[1]);
+                al.setEnergiakcal(Integer.parseInt(dados[2]));
+                al.setEnergiakj(Integer.parseInt(dados[3]));
+                al.setAgua(Float.parseFloat(dados[4]));
+                al.setProteina(Float.parseFloat(dados[5]));
+                al.setGorduraTotal(Float.parseFloat(dados[6]));
+                al.setHCdisponiveis(Float.parseFloat(dados[7]));
+                al.setHCmono(Float.parseFloat(dados[8]));
+                al.setMonoDi(Float.parseFloat(dados[9]));
+                al.setAcidosOrg(Float.parseFloat(dados[10]));
+                al.setAlcool(Float.parseFloat(dados[11]));
+                al.setAmido(Float.parseFloat(dados[12]));
+                al.setOligossacaridos(Float.parseFloat(dados[13]));
+                al.setFibra(Float.parseFloat(dados[14]));
+                al.setAcidosGordosSaturados(Float.parseFloat(dados[15]));
+                al.setAcidosGordosMono(Float.parseFloat(dados[16]));
+                al.setAcidosGordosPoli(Float.parseFloat(dados[17]));
+                al.setAcidosGordosTrans(Float.parseFloat(dados[18]));
+                al.setAcidoLinoleico(Float.parseFloat(dados[19]));
+                al.setColesterol(Float.parseFloat(dados[20]));
+                al.setVitA(Float.parseFloat(dados[21]));
+                al.setCaroteno(Float.parseFloat(dados[22]));
+                al.setVitD(Float.parseFloat(dados[23]));
+                al.setAtocoferol(Float.parseFloat(dados[24]));
+                al.setTiamina(Float.parseFloat(dados[25]));
+                al.setRiboflavina(Float.parseFloat(dados[26]));
+                al.setEqNiacina(Float.parseFloat(dados[27]));
+                al.setNiacina(Float.parseFloat(dados[28]));
+                al.setTriptofano(Float.parseFloat(dados[29]));
+                al.setVitB6(Float.parseFloat(dados[30]));
+                al.setVitB12(Float.parseFloat(dados[31]));
+                al.setVitC(Float.parseFloat(dados[32]));
+                al.setFolatos(Float.parseFloat(dados[33]));
+                al.setCinza(Float.parseFloat(dados[34]));
+                al.setNa(Float.parseFloat(dados[35]));
+                al.setK(Float.parseFloat(dados[36]));
+                al.setCa(Float.parseFloat(dados[37]));
+                al.setP(Float.parseFloat(dados[38]));
+                al.setMg(Float.parseFloat(dados[39]));
+                al.setFe(Float.parseFloat(dados[40]));
+                al.setZn(Float.parseFloat(dados[41]));
+
+
+                System.out.println(dados[0] + " " + dados[1]);
+                //System.out.println(line);
+
+            }
+
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void readCSValimentos_amendoim() throws FileNotFoundException{
+        String csvFile = "C:/Users/cfili/Desktop/ES2Work/csvAlimentos_amendoim.csv";
+        BufferedReader br = null;
+        String line = "";
+        String cvsSplitBy = ",";
+
+        try {
+
+            Alimentos al = new Alimentos();
+            String[] dados;
+
+            br = new BufferedReader(new FileReader(csvFile));
+            while ((line = br.readLine()) != null) {
+
+
+                // use comma as separator
+                dados = line.split(cvsSplitBy);
+
+                al.setCodigo(dados[0]);
+                al.setNome(dados[1]);
+                al.setEnergiakcal(Integer.parseInt(dados[2]));
+                al.setEnergiakj(Integer.parseInt(dados[3]));
+                al.setAgua(Float.parseFloat(dados[4]));
+                al.setProteina(Float.parseFloat(dados[5]));
+                al.setGorduraTotal(Float.parseFloat(dados[6]));
+                al.setHCdisponiveis(Float.parseFloat(dados[7]));
+                al.setHCmono(Float.parseFloat(dados[8]));
+                al.setMonoDi(Float.parseFloat(dados[9]));
+                al.setAcidosOrg(Float.parseFloat(dados[10]));
+                al.setAlcool(Float.parseFloat(dados[11]));
+                al.setAmido(Float.parseFloat(dados[12]));
+                al.setOligossacaridos(Float.parseFloat(dados[13]));
+                al.setFibra(Float.parseFloat(dados[14]));
+                al.setAcidosGordosSaturados(Float.parseFloat(dados[15]));
+                al.setAcidosGordosMono(Float.parseFloat(dados[16]));
+                al.setAcidosGordosPoli(Float.parseFloat(dados[17]));
+                al.setAcidosGordosTrans(Float.parseFloat(dados[18]));
+                al.setAcidoLinoleico(Float.parseFloat(dados[19]));
+                al.setColesterol(Float.parseFloat(dados[20]));
+                al.setVitA(Float.parseFloat(dados[21]));
+                al.setCaroteno(Float.parseFloat(dados[22]));
+                al.setVitD(Float.parseFloat(dados[23]));
+                al.setAtocoferol(Float.parseFloat(dados[24]));
+                al.setTiamina(Float.parseFloat(dados[25]));
+                al.setRiboflavina(Float.parseFloat(dados[26]));
+                al.setEqNiacina(Float.parseFloat(dados[27]));
+                al.setNiacina(Float.parseFloat(dados[28]));
+                al.setTriptofano(Float.parseFloat(dados[29]));
+                al.setVitB6(Float.parseFloat(dados[30]));
+                al.setVitB12(Float.parseFloat(dados[31]));
+                al.setVitC(Float.parseFloat(dados[32]));
+                al.setFolatos(Float.parseFloat(dados[33]));
+                al.setCinza(Float.parseFloat(dados[34]));
+                al.setNa(Float.parseFloat(dados[35]));
+                al.setK(Float.parseFloat(dados[36]));
+                al.setCa(Float.parseFloat(dados[37]));
+                al.setP(Float.parseFloat(dados[38]));
+                al.setMg(Float.parseFloat(dados[39]));
+                al.setFe(Float.parseFloat(dados[40]));
+                al.setZn(Float.parseFloat(dados[41]));
+
+
+                System.out.println(dados[0] + " " + dados[1]);
+                //System.out.println(line);
+
+            }
+
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void readCSValimentos_maca() throws FileNotFoundException{
+        String csvFile = "C:/Users/cfili/Desktop/ES2Work/csvAlimentos_maça.csv";
+        BufferedReader br = null;
+        String line = "";
+        String cvsSplitBy = ",";
+
+        try {
+
+            Alimentos al = new Alimentos();
+            String[] dados;
+
+            br = new BufferedReader(new FileReader(csvFile));
+            while ((line = br.readLine()) != null) {
+
+
+                // use comma as separator
+                dados = line.split(cvsSplitBy);
+
+                al.setCodigo(dados[0]);
+                al.setNome(dados[1]);
+                al.setEnergiakcal(Integer.parseInt(dados[2]));
+                al.setEnergiakj(Integer.parseInt(dados[3]));
+                al.setAgua(Float.parseFloat(dados[4]));
+                al.setProteina(Float.parseFloat(dados[5]));
+                al.setGorduraTotal(Float.parseFloat(dados[6]));
+                al.setHCdisponiveis(Float.parseFloat(dados[7]));
+                al.setHCmono(Float.parseFloat(dados[8]));
+                al.setMonoDi(Float.parseFloat(dados[9]));
+                al.setAcidosOrg(Float.parseFloat(dados[10]));
+                al.setAlcool(Float.parseFloat(dados[11]));
+                al.setAmido(Float.parseFloat(dados[12]));
+                al.setOligossacaridos(Float.parseFloat(dados[13]));
+                al.setFibra(Float.parseFloat(dados[14]));
+                al.setAcidosGordosSaturados(Float.parseFloat(dados[15]));
+                al.setAcidosGordosMono(Float.parseFloat(dados[16]));
+                al.setAcidosGordosPoli(Float.parseFloat(dados[17]));
+                al.setAcidosGordosTrans(Float.parseFloat(dados[18]));
+                al.setAcidoLinoleico(Float.parseFloat(dados[19]));
+                al.setColesterol(Float.parseFloat(dados[20]));
+                al.setVitA(Float.parseFloat(dados[21]));
+                al.setCaroteno(Float.parseFloat(dados[22]));
+                al.setVitD(Float.parseFloat(dados[23]));
+                al.setAtocoferol(Float.parseFloat(dados[24]));
+                al.setTiamina(Float.parseFloat(dados[25]));
+                al.setRiboflavina(Float.parseFloat(dados[26]));
+                al.setEqNiacina(Float.parseFloat(dados[27]));
+                al.setNiacina(Float.parseFloat(dados[28]));
+                al.setTriptofano(Float.parseFloat(dados[29]));
+                al.setVitB6(Float.parseFloat(dados[30]));
+                al.setVitB12(Float.parseFloat(dados[31]));
+                al.setVitC(Float.parseFloat(dados[32]));
+                al.setFolatos(Float.parseFloat(dados[33]));
+                al.setCinza(Float.parseFloat(dados[34]));
+                al.setNa(Float.parseFloat(dados[35]));
+                al.setK(Float.parseFloat(dados[36]));
+                al.setCa(Float.parseFloat(dados[37]));
+                al.setP(Float.parseFloat(dados[38]));
+                al.setMg(Float.parseFloat(dados[39]));
+                al.setFe(Float.parseFloat(dados[40]));
+                al.setZn(Float.parseFloat(dados[41]));
+
+
+                System.out.println(dados[0] + " " + dados[1]);
+                //System.out.println(line);
+
+            }
+
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void readCSValimentos_aveia() throws FileNotFoundException{
+        String csvFile = "C:/Users/cfili/Desktop/ES2Work/csvAlimentos_aveia.csv";
+        BufferedReader br = null;
+        String line = "";
+        String cvsSplitBy = ",";
+
+        try {
+
+            Alimentos al = new Alimentos();
+            String[] dados;
+
+            br = new BufferedReader(new FileReader(csvFile));
+            while ((line = br.readLine()) != null) {
+
+
+                // use comma as separator
+                dados = line.split(cvsSplitBy);
+
+
+                al.setCodigo(dados[0]);
+                al.setNome(dados[1]);
+                al.setEnergiakcal(Integer.parseInt(dados[2]));
+                al.setEnergiakj(Integer.parseInt(dados[3]));
+                al.setAgua(Float.parseFloat(dados[4]));
+                al.setProteina(Float.parseFloat(dados[5]));
+                al.setGorduraTotal(Float.parseFloat(dados[6]));
+                al.setHCdisponiveis(Float.parseFloat(dados[7]));
+                al.setHCmono(Float.parseFloat(dados[8]));
+                al.setMonoDi(Float.parseFloat(dados[9]));
+                al.setAcidosOrg(Float.parseFloat(dados[10]));
+                al.setAlcool(Float.parseFloat(dados[11]));
+                al.setAmido(Float.parseFloat(dados[12]));
+                al.setOligossacaridos(Float.parseFloat(dados[13]));
+                al.setFibra(Float.parseFloat(dados[14]));
+                al.setAcidosGordosSaturados(Float.parseFloat(dados[15]));
+                al.setAcidosGordosMono(Float.parseFloat(dados[16]));
+                al.setAcidosGordosPoli(Float.parseFloat(dados[17]));
+                al.setAcidosGordosTrans(Float.parseFloat(dados[18]));
+                al.setAcidoLinoleico(Float.parseFloat(dados[19]));
+                al.setColesterol(Float.parseFloat(dados[20]));
+                al.setVitA(Float.parseFloat(dados[21]));
+                al.setCaroteno(Float.parseFloat(dados[22]));
+                al.setVitD(Float.parseFloat(dados[23]));
+                al.setAtocoferol(Float.parseFloat(dados[24]));
+                al.setTiamina(Float.parseFloat(dados[25]));
+                al.setRiboflavina(Float.parseFloat(dados[26]));
+                al.setEqNiacina(Float.parseFloat(dados[27]));
+                al.setNiacina(Float.parseFloat(dados[28]));
+                al.setTriptofano(Float.parseFloat(dados[29]));
+                al.setVitB6(Float.parseFloat(dados[30]));
+                al.setVitB12(Float.parseFloat(dados[31]));
+                al.setVitC(Float.parseFloat(dados[32]));
+                al.setFolatos(Float.parseFloat(dados[33]));
+                al.setCinza(Float.parseFloat(dados[34]));
+                al.setNa(Float.parseFloat(dados[35]));
+                al.setK(Float.parseFloat(dados[36]));
+                al.setCa(Float.parseFloat(dados[37]));
+                al.setP(Float.parseFloat(dados[38]));
+                al.setMg(Float.parseFloat(dados[39]));
+                al.setFe(Float.parseFloat(dados[40]));
+                al.setZn(Float.parseFloat(dados[41]));
+
+
+                System.out.println(dados[0] + " " + dados[1]);
+                //System.out.println(line);
+
+            }
+
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
     }
 

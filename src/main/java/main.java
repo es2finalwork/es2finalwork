@@ -13,7 +13,11 @@ public class main {
 
         try {
             //cv.readCSV();
-            al.readCSValimentos();
+            al.readCSValimentos_frango();
+            al.readCSValimentos_massa();
+            al.readCSValimentos_amendoim();
+            al.readCSValimentos_maca();
+            al.readCSValimentos_aveia();
         } catch (FileNotFoundException e){
             System.out.println("File don't found");
         }
